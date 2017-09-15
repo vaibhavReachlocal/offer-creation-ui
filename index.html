@@ -12,11 +12,9 @@
 		<div class="col-sm-12">
 			<div class="form-group row">
 
-				<label  class="col-lg-4  col-sm-6 col-form-label">Offer
-					Id </label>
+				<label class="col-lg-4  col-sm-6 col-form-label">Offer Id </label>
 				<div class="col-lg-4 col-sm-6">
-					<input type="text" class="form-control" 
-						ng-model="id">
+					<input type="text" class="form-control" ng-model="id">
 				</div>
 				<div class="col-lg-2 col-sm-12">
 					<button class="btn-info" ng-click="fetchDetails()">Populate
@@ -26,27 +24,49 @@
 
 		</div>
 		<div class="col-sm-12">
-			<div class="box col-sm-6 left">
-				<div class="box-header ">
-					<h3 class="box-title">Template Fields</h3>
-				</div>
-				<div class="box-body">
-					<div class="row"></div>
-				</div>
-				<div class="box-footer"></div>
-			</div>
-			<div class="box col-sm-6 col-sm-offset-1 right">
+			<div class="box col-sm-6 col-sm-offset-1 left">
 				<div class="box-header ">
 					<h3 class="box-title">Extra Table Fields</h3>
 				</div>
 				<div class="box-body">
-					<div class="row">
+					<div class="row" ng-init="loadTableFields(templateFields)">
+						<div class="tab tab-selected">Template Fields <span class="right" ng-click="loadTableFields(templateFields)"> +</span></div>
+						<div class="tab" ng-repeat="(key,value) in offerDetails">
+							<div class="tab-title">
+								{{key}} <span
+									ng-if="value && (!isArray(value) || value.length>0)"
+									class="right" ng-click="loadTableFields(value)"> + </span>
+							</div>
+						
+						</div>
 					</div>
 				</div>
 				<div class="box-footer"></div>
 			</div>
-			
+			<div class="box col-sm-6 right">
+				<div class="box-header ">
+					<h3 class="box-title">Fields Value</h3>
+				</div>
+				<div class="box-body">
+					<div class="tab-fields">
+						<div class="row">
+							
+							<div ng-repeat="row in tabFields">
+								<div class="col-sm-12"
+									style="display: inline-block; text-align: left"
+									ng-repeat="(name,val) in row">
+									<div class="col-sm-6 left">{{name}} </div>
+									 <div class="col-sm-6 right"><input type="text" ng-modal="val" value="{{val}}"></input></div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box-footer"></div>
+			</div>
+
+
 		</div>
+
 	</div>
 </body>
 <script

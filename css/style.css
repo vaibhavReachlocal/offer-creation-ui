@@ -55,5 +55,17 @@
 	float:left;
 }
 .right{
-	flaot:right;
+	float:right;
+}
+.tab{
+	display:inline-block;
+    border-radius: 3px;
+    background: #ffffff;
+    border: 1px solid #d2d6de;
+    width: 100%;
+   
+}
+.tab-selected {
+	background: steelblue;
+	color:white;
 }
