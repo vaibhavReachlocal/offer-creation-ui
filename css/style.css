@@ -69,3 +69,14 @@
 	background: steelblue;
 	color:white;
 }
+.table-row {
+	padding:2px;
+	background:#f1f1f1;
+	border: 0.1px solid black;
+}
+.tab-title {
+	font-size:18px;
+	text-align: left;
+	padding:5px;
+	
+}

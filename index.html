@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="css/style.css">
 <body ng-app="offerCreationApp">
 	<div class="wrapper row" ng-controller="offerCreationController">
-		<div class="title">Offer Creation System</div>
+		<div class="title">Offer Creation System {{offerDetails.offer.offerName}} {{offerDetails.offerOptions[0].ooTableName}}</div>
 		<div class="col-sm-12">
 			<div class="form-group row">
 
@@ -24,46 +24,67 @@
 
 		</div>
 		<div class="col-sm-12">
-			<div class="box col-sm-6 col-sm-offset-1 left">
+			<div class="box col-sm-12 col-sm-offset-1 left">
+				<div class="box-header ">
+					<h3 class="box-title">Template Fields</h3>
+				</div>
+				<div class="box-body">
+					<div ng-repeat="field in templateFields">
+					{{field.name}} - <input class="col-sm-8" ng-model="offerDetails['offer'][field.model]" value="field.model"></input>
+					</div>
+				</div>
+				<div class="box-footer"></div>
+			</div>
+			<div class="box col-sm-12 col-sm-offset-1 left">
 				<div class="box-header ">
 					<h3 class="box-title">Extra Table Fields</h3>
 				</div>
 				<div class="box-body">
-					<div class="row" ng-init="loadTableFields(templateFields)">
-						<div class="tab tab-selected">Template Fields <span class="right" ng-click="loadTableFields(templateFields)"> +</span></div>
-						<div class="tab" ng-repeat="(key,value) in offerDetails">
-							<div class="tab-title">
+					<div class="row">
+
+						<div class="tab" ng-init="showFields=false"
+							ng-class="{'tab-selected':selectedTable == key}"
+							ng-repeat="(key,value) in offerDetails">
+							<div class="tab-title" ng-click="showFields=!showFields">
 								{{key}} <span
 									ng-if="value && (!isArray(value) || value.length>0)"
-									class="right" ng-click="loadTableFields(value)"> + </span>
+									class="right"> + </span>
 							</div>
-						
-						</div>
-					</div>
-				</div>
-				<div class="box-footer"></div>
-			</div>
-			<div class="box col-sm-6 right">
-				<div class="box-header ">
-					<h3 class="box-title">Fields Value</h3>
-				</div>
-				<div class="box-body">
-					<div class="tab-fields">
-						<div class="row">
-							
-							<div ng-repeat="row in tabFields">
-								<div class="col-sm-12"
-									style="display: inline-block; text-align: left"
-									ng-repeat="(name,val) in row">
-									<div class="col-sm-6 left">{{name}} </div>
-									 <div class="col-sm-6 right"><input type="text" ng-modal="val" value="{{val}}"></input></div></div>
+							<div>
+							<div ng-if="!isArray(value)" ng-show="showFields">
+							<div  class="row" ng-show="blocked.indexOf(name)==-1" ng-repeat="(name,val) in value track by $index" >
+											<div class="col-sm-3 left">{{name}}</div>
+											<div class="col-sm-8 right">
+												<input type="text"
+													ng-model="offerDetails['offer'][name]"
+													value="{{val}}"></input>
+											</div>
+								</div>
 							</div>
-						</div>
-					</div>
-				</div>
-				<div class="box-footer"></div>
-			</div>
+								<div ng-if="isArray(value)" ng-repeat="row in value" ng-show="showFields">
+									<div class="table-row">
+										<div class="col-sm-12"
+											style="display: inline-block; text-align: left"
+											ng-repeat="(name,val) in row track by $index"
+											ng-show="blocked.indexOf(name)==-1">
 
+											<div class="col-sm-3 left">{{name}}</div>
+											<div class="col-sm-8 right">
+												<input type="text"
+													ng-model="offerDetails[key][$parent.$index][name]"
+													value="{{val}}"></input>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="box-footer"></div>
+			</div>
 
 		</div>
 
