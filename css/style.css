@@ -8,7 +8,7 @@
     padding:2rem;
 }
 .box{
-    position: relative;
+   display:inline-block;
     border-radius: 3px;
     background: #ffffff;
     border-top: 3px solid #d2d6de;
@@ -50,4 +50,10 @@
 }
 .box.box-success {
     border-top-color: #00a65a;
+}
+.left{
+	float:left;
+}
+.right{
+	flaot:right;
 }
