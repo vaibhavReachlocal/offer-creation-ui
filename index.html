@@ -13,14 +13,23 @@
 			<div class="form-group row">
 
 				<label class="col-lg-4  col-sm-6 col-form-label">Offer Id </label>
-				<div class="col-lg-4 col-sm-6">
+				<div class="col-lg-8 col-sm-6">
 					<input type="text" class="form-control" ng-model="id">
 				</div>
-				<div class="col-lg-2 col-sm-12">
+			</div>
+<!-- 			<div class="form-group row"> -->
+<!-- 				<label class="col-lg-4  col-sm-6 col-form-label">Ticket -->
+<!-- 					Number </label> -->
+<!-- 				<div class="col-lg-8 col-sm-6"> -->
+<!-- 					<input type="text" class="form-control" ng-model="ticketNo"> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+			<div class="form-group row ">
+				<div class="col-lg-6 col-sm-12" >
 					<button class="btn-info" ng-click="fetchDetails()">Populate
 						values</button>
 				</div>
-				<div class="col-lg-2 col-sm-12">
+				<div class="col-lg-6 col-sm-12">
 					<button class="btn-info" ng-click="cloneOffer()">Clone
 						Offer</button>
 				</div>
@@ -34,15 +43,15 @@
 				</div>
 				<div class="box-body ">
 					<div ng-repeat="field in templateFields">
-							<div class="row" ng-if="field.type=='offer'" >
+						<div class="row" ng-if="field.type=='offer'">
 							<div class=" col-sm-4 text-left">{{field.name}}</div>
 							<div class=" col-sm-7">
 								<input class="col-sm-8"
 									ng-model="offerDetails['offer'][field.model]"
 									value="field.model"></input>
 							</div>
-						  </div>
-						<div class="row"  ng-if="field.type=='productFamily'" >
+						</div>
+						<div class="row" ng-if="field.type=='productFamily'">
 							<div class=" col-sm-4 text-left">{{field.name}}</div>
 							<div class=" col-sm-7">
 								<input class="col-sm-8"
@@ -70,19 +79,20 @@
 									class="right"> + </span>
 							</div>
 							<div>
-							<div ng-if="!isArray(value)" ng-show="showFields">
-							<div  class="row" ng-show="blocked.indexOf(name)==-1" ng-repeat="(name,val) in value track by $index" >
-											<div class="col-sm-3 left">{{name}}</div>
-											<div class="col-sm-8 right">
-												<input type="text"
-													ng-model="offerDetails['offer'][name]"
-													value="{{val}}"></input>
-											</div>
+								<div ng-if="!isArray(value)" ng-show="showFields">
+									<div class="row" ng-show="blocked.indexOf(name)==-1"
+										ng-repeat="(name,val) in value track by $index">
+										<div class="col-sm-3 left">{{name}}</div>
+										<div class="col-sm-8 right">
+											<input type="text" ng-model="offerDetails['offer'][name]"
+												value="{{val}}"></input>
+										</div>
+									</div>
 								</div>
-							</div>
-								<div ng-if="isArray(value)" ng-repeat="row in value" ng-show="showFields">
+								<div ng-if="isArray(value)" ng-repeat="row in value"
+									ng-show="showFields">
 									<div class="remove-link" ng-click="removeRow(value,$index)">
-											Delete</div>
+										Delete</div>
 									<div class="table-row">
 										<div class="col-sm-12"
 											style="display: inline-block; text-align: left"
@@ -96,12 +106,12 @@
 													value="{{val}}"></input>
 											</div>
 										</div>
-										
+
 
 									</div>
-									
+
 								</div>
-								
+
 							</div>
 
 						</div>
