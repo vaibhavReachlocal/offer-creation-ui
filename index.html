@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="css/style.css">
 <body ng-app="offerCreationApp">
 	<div class="wrapper row" ng-controller="offerCreationController">
-		<div class="title">Offer Creation System {{offerDetails.offer.offerName}} {{offerDetails.offerOptions[0].ooTableName}}</div>
+		<div class="title">Offer Creation System </div>
 		<div class="col-sm-12">
 			<div class="form-group row">
 
@@ -20,6 +20,10 @@
 					<button class="btn-info" ng-click="fetchDetails()">Populate
 						values</button>
 				</div>
+				<div class="col-lg-2 col-sm-12">
+					<button class="btn-info" ng-click="cloneOffer()">Clone
+						Offer</button>
+				</div>
 			</div>
 
 		</div>
@@ -30,7 +34,13 @@
 				</div>
 				<div class="box-body">
 					<div ng-repeat="field in templateFields">
+					
+					<div ng-if="field.type=='offer'")>
 					{{field.name}} - <input class="col-sm-8" ng-model="offerDetails['offer'][field.model]" value="field.model"></input>
+					</div>
+					<div ng-if="field.type=='productFamily'")>
+					{{field.name}} - <input class="col-sm-8" ng-model="offerDetails['productFamilyOffer'][0][field.model]" value="field.model"></input>
+					</div>
 					</div>
 				</div>
 				<div class="box-footer"></div>

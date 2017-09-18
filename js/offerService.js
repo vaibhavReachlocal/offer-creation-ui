@@ -10,5 +10,14 @@ app.service('offerService',function($http){
         	console.log(response);
         });
         return promise;
+    },
+    this.cloneOffer = function(offerData){
+        var api_url = "http://10.225.30.102:8080/offers-automation/test";
+        console.log(offerData);
+        var promise = $http.post(api_url,offerData,function(response){
+        	
+        })
+        
+        return promise;
     }
 });
