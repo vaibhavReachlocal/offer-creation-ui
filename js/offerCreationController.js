@@ -103,6 +103,10 @@ app.controller('offerCreationController', function ($scope,$rootScope,offerServi
     	offerService.fetchOffer($scope.id).then(function(response){
     		$scope.offerDetails = response; 
     	});
+//    	offerService.fetchJiraDetails($scope.ticketNo).then(function(response){
+//    		console.log(response);
+//    	});
+    	
     }
 
     $scope.blocked = ["id","idOffer","offerId"];

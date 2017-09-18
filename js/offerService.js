@@ -4,6 +4,7 @@ app.service('offerService',function($http){
 
     this.fetchOffer = function(offerId){
         var api_url = "http://10.225.30.102:8080/offers-automation/fetch-offerdata/"+offerId;
+       
         var promise = $http({method : "GET", url:api_url}).then(function mySuccess(response) {
         	return response.data;
         }, function myError(response) {
@@ -11,6 +12,23 @@ app.service('offerService',function($http){
         });
         return promise;
     },
+    this.fetchJiraDetails = function(ticketId){
+    	 var jira_api = "https://tickets.reachlocal.com/rest/api/2/issue/"+ticketId;
+    	 var loginArgs = {
+    		        data: {
+    		                "username": "vaibhav.shah",
+    		                "password": ""
+    		        },
+    		        headers: {
+    		                "Content-Type": "application/json"
+    		        } 
+    		};
+    	 var promise = $http.get(jira_api,loginArgs,function(response){
+    		 return response.data;
+         })
+    	 
+         return promise;
+    }
     this.cloneOffer = function(offerData){
         var api_url = "http://10.225.30.102:8080/offers-automation/test";
         console.log(offerData);
