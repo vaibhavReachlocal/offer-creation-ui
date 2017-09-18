@@ -6,16 +6,105 @@ app.controller('offerCreationController', function ($scope,$rootScope,offerServi
     	"type":"offer",
     	"model":"offerName"
     },{
+    	"name":"Retail Price",
+    	"type":"offer",
+    	"model":"offerName"
+    },{
+    	"name":"Offer Minimum Price (Vendor Minimum Price)(R):",
+    	"type":"offer",
+    	"model":"offerName"
+    },
+    {
+    	"name":"Offer Max Price(R):",
+    	"type":"offer",
+    	"model":"offerName"
+    },
+    {
+    	"name":"Lumpsum Flag(R):",
+    	"type":"offer",
+    	"model":"offerName"
+    },
+    {
+    	"name":"No. of Cycles (R):",
+    	"type":"offer",
+    	"model":"offerName"
+    },
+    {
+    	"name":"Evergreen Eligible (yes/No)(R):",
+    	"type":"offer",
+    	"model":"offerName"
+    },
+    {
+    	"name":"Currency to be used(R):",
+    	"type":"offer",
+    	"model":"offerName"
+    },{
     	"name":"Product Family (R):",
     	"type":"productFamily",
     	"model":"productFamilyId"
-    }]
-    $scope.fetchDetails = function(){
-    offerService.fetchOffer($scope.id).then(function(response){
-		$scope.offerDetails = response; 
-	});
+    },{
+    	"name":"Platform/Country on which this offer should be created.(R):",
+    	"type":"productFamily",
+    	"model":"productFamilyId"
+    },{
+    	"name":"Margin Rate:",
+    	"type":"productFamily",
+    	"model":"productFamilyId"
+    },{
+    	"name":"Product URI:",
+    	"type":"productFamily",
+    	"model":"productFamilyId"
+    },{
+    	"name":"What BID's should these new offers be enabled:",
+    	"type":"productFamily",
+    	"model":"productFamilyId"
+    },{
+    	"name":"Business Justification:",
+    	"type":"productFamily",
+    	"model":"productFamilyId"
+    },{
+    	"name":"Priority Flag:",
+    	"type":"productFamily",
+    	"model":"productFamilyId"
+    },{
+    	"name":"Priority Justification:",
+    	"type":"productFamily",
+    	"model":"productFamilyId"
+    },{
+    	"name":"Product owner:",
+    	"type":"productFamily",
+    	"model":"productFamilyId"
+    },{
+    	"name":"Web Publisher ID to be used for the new offer:",
+    	"type":"productFamily",
+    	"model":"productFamilyId"
+    },{
+    	"name":"Campaign Type to be used(R):",
+    	"type":"productFamily",
+    	"model":"productFamilyId"
+    },{
+    	"name":"CampaignSubType to be used(R):",
+    	"type":"productFamily",
+    	"model":"productFamilyId"
+    },{
+    	"name":"Margin Percentage(yes/no)(R):",
+    	"type":"productFamily",
+    	"model":"productFamilyId"
+    },{
+    	"name":"Margin Percentage:",
+    	"type":"productFamily",
+    	"model":"productFamilyId"
     }
-    
+
+
+
+    ]
+    $scope.fetchDetails = function(){
+    	offerService.fetchOffer($scope.id).then(function(response){
+    		$scope.offerDetails = response; 
+    	});
+    }
+
     $scope.blocked = ["id","idOffer","offerId"];
     $scope.loadTableFields=function(tableName,data){
     	$scope.selectedTable = tableName;

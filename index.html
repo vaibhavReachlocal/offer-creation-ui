@@ -32,15 +32,24 @@
 				<div class="box-header ">
 					<h3 class="box-title">Template Fields</h3>
 				</div>
-				<div class="box-body">
+				<div class="box-body ">
 					<div ng-repeat="field in templateFields">
-					
-					<div ng-if="field.type=='offer'")>
-					{{field.name}} - <input class="col-sm-8" ng-model="offerDetails['offer'][field.model]" value="field.model"></input>
-					</div>
-					<div ng-if="field.type=='productFamily'")>
-					{{field.name}} - <input class="col-sm-8" ng-model="offerDetails['productFamilyOffer'][0][field.model]" value="field.model"></input>
-					</div>
+							<div class="row" ng-if="field.type=='offer'" >
+							<div class=" col-sm-4 text-left">{{field.name}}</div>
+							<div class=" col-sm-7">
+								<input class="col-sm-8"
+									ng-model="offerDetails['offer'][field.model]"
+									value="field.model"></input>
+							</div>
+						  </div>
+						<div class="row"  ng-if="field.type=='productFamily'" >
+							<div class=" col-sm-4 text-left">{{field.name}}</div>
+							<div class=" col-sm-7">
+								<input class="col-sm-8"
+									ng-model="offerDetails['productFamilyOffer'][0][field.model]"
+									value="field.model"></input>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="box-footer"></div>
