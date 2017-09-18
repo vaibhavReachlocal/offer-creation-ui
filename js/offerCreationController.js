@@ -8,36 +8,36 @@ app.controller('offerCreationController', function ($scope,$rootScope,offerServi
     },{
     	"name":"Retail Price",
     	"type":"offer",
-    	"model":"offerName"
+    	"model":""
     },{
     	"name":"Offer Minimum Price (Vendor Minimum Price)(R):",
     	"type":"offer",
-    	"model":"offerName"
+    	"model":"vendorMinCost"
     },
     {
     	"name":"Offer Max Price(R):",
     	"type":"offer",
-    	"model":"offerName"
+    	"model":"vendorMaxCost"
     },
     {
     	"name":"Lumpsum Flag(R):",
     	"type":"offer",
-    	"model":"offerName"
+    	"model":"isLumpSum"
     },
     {
     	"name":"No. of Cycles (R):",
     	"type":"offer",
-    	"model":"offerName"
+    	"model":""
     },
     {
     	"name":"Evergreen Eligible (yes/No)(R):",
     	"type":"offer",
-    	"model":"offerName"
+    	"model":""
     },
     {
     	"name":"Currency to be used(R):",
     	"type":"offer",
-    	"model":"offerName"
+    	"model":"currency"
     },{
     	"name":"Product Family (R):",
     	"type":"productFamily",
@@ -45,55 +45,55 @@ app.controller('offerCreationController', function ($scope,$rootScope,offerServi
     },{
     	"name":"Platform/Country on which this offer should be created.(R):",
     	"type":"productFamily",
-    	"model":"productFamilyId"
+    	"model":""
     },{
     	"name":"Margin Rate:",
     	"type":"productFamily",
-    	"model":"productFamilyId"
+    	"model":""
     },{
     	"name":"Product URI:",
     	"type":"productFamily",
-    	"model":"productFamilyId"
+    	"model":""
     },{
     	"name":"What BID's should these new offers be enabled:",
-    	"type":"productFamily",
-    	"model":"productFamilyId"
+    	"type":"hasMarginPercents",
+    	"model":""
     },{
     	"name":"Business Justification:",
     	"type":"productFamily",
-    	"model":"productFamilyId"
+    	"model":""
     },{
     	"name":"Priority Flag:",
     	"type":"productFamily",
-    	"model":"productFamilyId"
+    	"model":""
     },{
     	"name":"Priority Justification:",
     	"type":"productFamily",
-    	"model":"productFamilyId"
+    	"model":""
     },{
     	"name":"Product owner:",
     	"type":"productFamily",
     	"model":"productFamilyId"
     },{
     	"name":"Web Publisher ID to be used for the new offer:",
-    	"type":"productFamily",
-    	"model":"productFamilyId"
+    	"type":"offer",
+    	"model":"idWebPublisher"
     },{
     	"name":"Campaign Type to be used(R):",
-    	"type":"productFamily",
-    	"model":"productFamilyId"
+    	"type":"offer",
+    	"model":"idCampaignType"
     },{
     	"name":"CampaignSubType to be used(R):",
-    	"type":"productFamily",
-    	"model":"productFamilyId"
+    	"type":"offer",
+    	"model":"idCampaignSubType"
     },{
     	"name":"Margin Percentage(yes/no)(R):",
-    	"type":"productFamily",
-    	"model":"productFamilyId"
+    	"type":"hasMarginPercents",
+    	"model":""
     },{
     	"name":"Margin Percentage:",
-    	"type":"productFamily",
-    	"model":"productFamilyId"
+    	"type":"hasMarginPercents",
+    	"model":"markUpPercent"
     }
 
 
