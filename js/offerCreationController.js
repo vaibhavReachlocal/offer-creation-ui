@@ -127,4 +127,9 @@ app.controller('offerCreationController', function ($scope,$rootScope,offerServi
     			 
     		});
     }
+    $scope.removeRow = function(row,index){
+    	row.splice(index, 1);
+    	console.log(row,index);
+    	
+    }
 });

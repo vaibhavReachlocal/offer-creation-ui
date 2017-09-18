@@ -83,3 +83,10 @@
 .text-left {
 	text-align: left;
 }
+.remove-link {
+	position: absolute;
+    right: 0;
+    margin: 25px;
+    cursor: pointer;
+    color:red;
+}

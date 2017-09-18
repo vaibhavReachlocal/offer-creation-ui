@@ -81,6 +81,8 @@
 								</div>
 							</div>
 								<div ng-if="isArray(value)" ng-repeat="row in value" ng-show="showFields">
+									<div class="remove-link" ng-click="removeRow(value,$index)">
+											Delete</div>
 									<div class="table-row">
 										<div class="col-sm-12"
 											style="display: inline-block; text-align: left"
@@ -94,9 +96,12 @@
 													value="{{val}}"></input>
 											</div>
 										</div>
+										
 
 									</div>
+									
 								</div>
+								
 							</div>
 
 						</div>
