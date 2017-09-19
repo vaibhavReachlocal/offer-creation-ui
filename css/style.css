@@ -1,11 +1,11 @@
 .title{
     text-align: center;
     padding:2rem;
-    font-size: large;
+    font-family: sans-serif;
+    font-size: larger;
 }
 .wrapper{
     text-align: center;
-    padding:2rem;
 }
 .box{
    display:inline-block;
@@ -89,4 +89,12 @@
     margin: 25px;
     cursor: pointer;
     color:red;
+}
+.error {
+    color: red;
+}
+.center {
+    padding: 70px 0;
+    border: 3px solid green;
+    text-align: center;
 }
