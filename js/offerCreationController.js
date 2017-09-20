@@ -12,12 +12,12 @@ app.controller('offerCreationController', function ($scope,$rootScope,offerServi
     },{
     	"name":"Offer Minimum Price (Vendor Minimum Price)(R):",
     	"type":"offer",
-    	"model":"vendorMinCost"
+    	"model":"vendorMinBudget"
     },
     {
     	"name":"Offer Max Price(R):",
     	"type":"offer",
-    	"model":"vendorMaxCost"
+    	"model":"vendorMaxBudget"
     },
     {
     	"name":"Lumpsum Flag(R):",
@@ -27,7 +27,7 @@ app.controller('offerCreationController', function ($scope,$rootScope,offerServi
     {
     	"name":"No. of Cycles (R):",
     	"type":"offer",
-    	"model":""
+    	"model":"maxRenewalCycles"
     },
     {
     	"name":"Evergreen Eligible (yes/No)(R):",

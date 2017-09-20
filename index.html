@@ -94,9 +94,9 @@
                             <div ng-if="!isArray(value)" ng-show="showFields">
                                 <div class="row" ng-show="blocked.indexOf(name)==-1"
                                      ng-repeat="(name,val) in value track by $index">
-                                    <div class="col-sm-3 left">{{name}}</div>
+                                    <div class="col-sm-4 text-left left pad-left ">{{name}}</div>
                                     <div class="col-sm-8 right">
-                                        <input type="text" ng-model="offerDetails['offer'][name]"
+                                        <input  style="width:80%" type="text" ng-model="offerDetails['offer'][name]"
                                                value="{{val}}"></input>
                                     </div>
                                 </div>
@@ -112,9 +112,9 @@
                                          ng-repeat="(name,val) in row track by $index"
                                          ng-show="blocked.indexOf(name)==-1">
 
-                                        <div class="col-sm-3 left">{{name}}</div>
-                                        <div class="col-sm-8 right">
-                                            <input type="text"
+                                        <div class="col-sm-4 text-left left pad-left">{{name}}</div>
+                                        <div class="col-sm-7 right">
+                                            <input style="width:80%" type="text"
                                                    ng-model="offerDetails[key][$parent.$index][name]"
                                                    value="{{val}}"></input>
                                         </div>
