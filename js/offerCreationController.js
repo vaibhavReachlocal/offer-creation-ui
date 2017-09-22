@@ -32,7 +32,7 @@ app.controller('offerCreationController', function ($scope,$rootScope,offerServi
     {
     	"name":"Evergreen Eligible (yes/No)(R):",
     	"type":"offer",
-    	"model":""
+    	"model":"maxRenewalCycles"
     },
     {
     	"name":"Currency to be used(R):",
@@ -48,7 +48,7 @@ app.controller('offerCreationController', function ($scope,$rootScope,offerServi
     	"model":""
     },{
     	"name":"Margin Rate:",
-    	"type":"productFamily",
+    	"type":"hasMarginPercents",
     	"model":""
     },{
     	"name":"Product URI:",
@@ -95,10 +95,8 @@ app.controller('offerCreationController', function ($scope,$rootScope,offerServi
     	"type":"hasMarginPercents",
     	"model":"markUpPercent"
     }
-
-
-
     ]
+
     $scope.fetchDetails = function(){
 
         $scope.showValue = false;
@@ -107,7 +105,9 @@ app.controller('offerCreationController', function ($scope,$rootScope,offerServi
     	if($scope.id) {
             $scope.showLoading = true;
             offerService.fetchOffer($scope.id).then(function (response) {
+
                 $scope.offerDetails = response;
+
                 $scope.showLoading = false;
                 $scope.showValue = true;
             });
@@ -119,17 +119,7 @@ app.controller('offerCreationController', function ($scope,$rootScope,offerServi
     }
 
     $scope.blocked = ["id","idOffer","offerId"];
-    $scope.loadTableFields=function(tableName,data){
-    	$scope.selectedTable = tableName;
-    	var fieldData = [];
-    	if(!$scope.isArray(data)){
-    		fieldData.push(data);
-    		$scope.tabFields = fieldData;
-    	} else {
-    		$scope.tabFields = data;
-    	}
-    	
-    }
+
     $scope.isArray = angular.isArray;
     $scope.isBlocked = function(val){
     	console.log(val)
@@ -144,5 +134,8 @@ app.controller('offerCreationController', function ($scope,$rootScope,offerServi
     	row.splice(index, 1);
     	console.log(row,index);
     	
+    }
+    $scope.addRow = function (row,index) {
+        console.log(row);
     }
 });

@@ -11,7 +11,7 @@
     <div class="title">Offer Creation System</div>
     <div>
         <form class="form-group row" name="form">
-            <label class="col-lg-3  col-sm-6 col-form-label" style="text-align: right">Offer Id :</label>
+            <label class="col-lg-3  col-sm-6 col-form-label" style="text-align: right">Offer Id to mirror:</label>
             <div class="col-lg-2 col-sm-6">
                 <input type="text" name="inputOfferId" class="form-control" ng-model="id" valid-number required/>
                 <span class="error"
@@ -86,9 +86,8 @@
                          ng-class="{'tab-selected':selectedTable == key}"
                          ng-repeat="(key,value) in offerDetails">
                         <div class="tab-title" ng-click="showFields=!showFields">
-                            {{key}} <span
-                                ng-if="value && (!isArray(value) || value.length>0)"
-                                class="right"> + </span>
+                            <span ng-if="value && (!isArray(value) || value.length>0)" class="back-highlight">{{key}}</span>
+                            <span ng-if="!(value && (!isArray(value) || value.length>0))">{{key}}</span>
                         </div>
                         <div>
                             <div ng-if="!isArray(value)" ng-show="showFields">
@@ -101,6 +100,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div ng-if="isArray(value) && !value.length" ng-show="showFields">
+                            </div>
+                            <div class="add-link" ng-click="addRow(value,$index)" ng-show="showFields">Add new row</div>
                             <div ng-if="isArray(value)" ng-repeat="row in value"
                                  ng-show="showFields">
                                 <div class="remove-link" ng-click="removeRow(value,$index)">
@@ -119,12 +121,8 @@
                                                    value="{{val}}"></input>
                                         </div>
                                     </div>
-
-
                                 </div>
-
                             </div>
-
                         </div>
 
                     </div>

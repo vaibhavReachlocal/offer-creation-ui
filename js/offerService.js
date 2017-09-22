@@ -3,7 +3,7 @@
 app.service('offerService',function($http){
 
     this.fetchOffer = function(offerId){
-        var api_url = "http://localhost:8080/offers-automation/fetch-offerdata/"+offerId;
+        var api_url = "http://localhost:8080/offers-automation/fetch-offer/"+offerId;
        
         var promise = $http({method : "GET", url:api_url}).then(function mySuccess(response) {
         	return response.data;
