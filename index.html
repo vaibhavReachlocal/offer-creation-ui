@@ -89,7 +89,8 @@
                          ng-mouseleave="hovered=false">
                         <div class="tab-title" ng-click="showFields=!showFields">
                             <span ng-class="{'back-highlight':value && (!isArray(value) || value.length>0)}" >
-                             <span ng-if="value && (!isArray(value) || value.length>0)">[+]</span>
+                             <span ng-if="value && (!isArray(value) || value.length>0) && !showFields">[+]</span>
+                                <span ng-if="value && (!isArray(value) || value.length>0) && showFields">[-]</span>
                             {{key}}</span>
                             <div class="right">
                            <span ng-if="hovered" ng-click="addRow(key,value);">Add New Row</span>
