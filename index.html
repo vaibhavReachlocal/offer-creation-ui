@@ -84,13 +84,15 @@
 
                     <div class="tab" ng-init="showFields=false"
                          ng-class="{'tab-selected':selectedTable == key}"
-                         ng-repeat="(key,value) in offerDetails">
+                         ng-repeat="(key,value) in offerDetails"
+                         ng-mouseenter="hovered=true"
+                         ng-mouseleave="hovered=false">
                         <div class="tab-title" ng-click="showFields=!showFields">
                             <span ng-class="{'back-highlight':value && (!isArray(value) || value.length>0)}" >
                              <span ng-if="value && (!isArray(value) || value.length>0)">[+]</span>
                             {{key}}</span>
                             <div class="right">
-                           <span ng-if="value && (!isArray(value) || value.length>0)">Add Row</span>
+                           <span ng-if="hovered" ng-click="addRow(key,value);">Add New Row</span>
                             </div>
                         </div>
                         <div>
@@ -106,7 +108,7 @@
                             </div>
                             <div ng-if="isArray(value) && !value.length" ng-show="showFields">
                             </div>
-                            <div class="add-link" ng-click="addRow(value,$index)" ng-show="showFields">Add new row</div>
+                            
                             <div ng-if="isArray(value)" ng-repeat="row in value"
                                  ng-show="showFields">
                                 <div class="remove-link" ng-click="removeRow(value,$index)">
@@ -144,4 +146,5 @@
 <script src="js/app.js"></script>
 <script src="js/offerCreationController.js"></script>
 <script src="js/offerService.js"></script>
+<script src="js/models.js"></script>
 </html>

@@ -140,7 +140,9 @@ app.controller('offerCreationController', function ($scope,$rootScope,offerServi
     	console.log(row,index);
     	
     }
-    $scope.addRow = function (row,index) {
-        console.log(row);
+    $scope.addRow = function (tableName,rows) {
+        rows.push(models[tableName]);
+        
+        setTimeout(function(){$scope.showFields = true;},0);
     }
 });
