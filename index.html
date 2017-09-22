@@ -86,8 +86,12 @@
                          ng-class="{'tab-selected':selectedTable == key}"
                          ng-repeat="(key,value) in offerDetails">
                         <div class="tab-title" ng-click="showFields=!showFields">
-                            <span ng-if="value && (!isArray(value) || value.length>0)" class="back-highlight">{{key}}</span>
-                            <span ng-if="!(value && (!isArray(value) || value.length>0))">{{key}}</span>
+                            <span ng-class="{'back-highlight':value && (!isArray(value) || value.length>0)}" >
+                             <span ng-if="value && (!isArray(value) || value.length>0)">[+]</span>
+                            {{key}}</span>
+                            <div class="right">
+                           <span ng-if="value && (!isArray(value) || value.length>0)">Add Row</span>
+                            </div>
                         </div>
                         <div>
                             <div ng-if="!isArray(value)" ng-show="showFields">
