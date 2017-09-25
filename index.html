@@ -6,7 +6,7 @@
 </head>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css">
-<body ng-app="offerCreationApp">
+<body ng-app="offerCreationApp" ng-cloak>
 	<div class="wrapper" ng-controller="offerCreationController">
 		<div class="title">Offer Creation System</div>
 		<div>
@@ -91,7 +91,8 @@
 							<div class="tab-title" ng-click="showFields=!showFields">
 								<span
 									ng-class="{'back-highlight':value && (!isArray(value) || value.length>0)}">
-									<span ng-if="value && (!isArray(value) || value.length>0)">[+]</span>
+									<span ng-if="!showFields && value && (!isArray(value) || value.length>0)">[+]</span>
+									<span ng-if="showFields && value && (!isArray(value) || value.length>0)">[-]</span>
 									{{key}}
 								</span>
 								<div class="right">
