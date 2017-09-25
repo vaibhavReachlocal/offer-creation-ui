@@ -13,17 +13,9 @@ app.service('offerService',function($http){
         return promise;
     },
     this.fetchJiraDetails = function(ticketId){
-    	 var jira_api = "https://tickets.reachlocal.com/rest/api/2/issue/"+ticketId;
-    	 var loginArgs = {
-    		        data: {
-    		                "username": "vaibhav.shah",
-    		                "password": ""
-    		        },
-    		        headers: {
-    		                "Content-Type": "application/json"
-    		        } 
-    		};
-    	 var promise = $http.get(jira_api,loginArgs,function(response){
+    	 var jira_api = "http://localhost:8080/issues/"+ticketId;
+    	
+    	 var promise = $http.get(jira_api,function(response){
     		 return response.data;
          })
     	 
