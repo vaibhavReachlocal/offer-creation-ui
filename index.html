@@ -134,52 +134,11 @@
 								</div>
 							</div>
 
-<<<<<<< Upstream, based on origin/master
-                    <div class="tab" ng-init="showFields=false"
-                         ng-class="{'tab-selected':selectedTable == key}"
-                         ng-repeat="(key,value) in offerDetails"
-                         ng-mouseenter="hovered=true"
-                         ng-mouseleave="hovered=false">
-                        <div class="tab-title" ng-click="showFields=!showFields">
-                            <span ng-class="{'back-highlight':value && (!isArray(value) || value.length>0)}" >
-                             <span ng-if="value && (!isArray(value) || value.length>0) && !showFields">[+]</span>
-                                <span ng-if="value && (!isArray(value) || value.length>0) && showFields">[-]</span>
-                            {{key}}</span>
-                            <div class="right">
-                           <span ng-if="hovered" ng-click="addRow(key,value);">Add New Row</span>
-                            </div>
-                        </div>
-                        <div>
-                            <div ng-if="!isArray(value)" ng-show="showFields">
-                                <div class="row" ng-show="blocked.indexOf(name)==-1"
-                                     ng-repeat="(name,val) in value track by $index">
-                                    <div class="col-sm-4 text-left left pad-left ">{{name}}</div>
-                                    <div class="col-sm-8 right">
-                                        <input  style="width:80%" type="text" ng-model="offerDetails['offer'][name]"
-                                               value="{{val}}"></input>
-                                    </div>
-                                </div>
-                            </div>
-                            <div ng-if="isArray(value) && !value.length" ng-show="showFields">
-                            </div>
-                            
-                            <div ng-if="isArray(value)" ng-repeat="row in value"
-                                 ng-show="showFields">
-                                <div class="remove-link" ng-click="removeRow(value,$index)">
-                                    Delete
-                                </div>
-                                <div class="table-row">
-                                    <div class="col-sm-12"
-                                         style="display: inline-block; text-align: left"
-                                         ng-repeat="(name,val) in row track by $index"
-                                         ng-show="blocked.indexOf(name)==-1">
-=======
 						</div>
 					</div>
 				</div>
 				<div class="box-footer"></div>
 			</div>
->>>>>>> d0a4155 JIRA integration related changes
 
 		</div>
 
