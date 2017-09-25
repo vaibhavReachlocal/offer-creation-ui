@@ -40,7 +40,9 @@
 		</div>
 
 		<loading-bar ng-show="showLoading"></loading-bar>
-		<div class="error" ng-if="error">{{error}}</div>
+		<div class="{{messageClass}}" ng-if="message">{{message}}</div>
+		
+		
 		<div class="col-sm-12" ng-show="showValue">
 			<div class="box col-sm-8 col-sm-offset-2">
 				<div class="box-header">
